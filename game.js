@@ -67,7 +67,7 @@ $(document).ready(function(){
                     col.addClass("tree divBg");
                 }
                 if (i ==14 && j==23){
-                    col.addClass("professor divBg");
+                    col.addClass("crafting-table divBg");
                 }
                 if (i==14 && j==2 ){
                     col.addClass("bulbasaur divBg");
@@ -86,7 +86,7 @@ $(document).ready(function(){
                     col.addClass("grass divBg");
                 }
                 if (i==16 && j==5){
-                    col.addClass("diglett divBg");
+                    col.addClass("dirt divBg");
                 }
                 else if (i>=16){
                     col.addClass("dirt divBg");
@@ -105,7 +105,7 @@ $(document).ready(function(){
     }
 
 
-    var toolArray = ["picaxe","shovel","axe","pokeball"];
+    var toolArray = ["pickaxe","shovel","axe","pokeball"];
 
     var toolImages =["images/pickaxe.png","images/shovel.png","images/axe.png","images/ball.png"];
 
@@ -221,7 +221,7 @@ $(document).ready(function(){
                     }
                 }
 
-                else if(carrying=='tool axe' || carrying=='tool picaxe' || carrying=='tool pokeball'){
+                else if(carrying=='tool axe' || carrying=='tool pickaxe' || carrying=='tool pokeball'){
                     blinkRed();
 
                 }
@@ -242,13 +242,13 @@ $(document).ready(function(){
                         treeCount++;
                     }
                 }
-                else if(carrying=='tool shovel' || carrying=='tool picaxe' || carrying=='tool pokeball'){
+                else if(carrying=='tool shovel' || carrying=='tool pickaxe' || carrying=='tool pokeball'){
                     blinkRed();
                 }
             }
             else if(selectedDiv =='rock divBg'){
 
-                if(carrying=='tool picaxe'){
+                if(carrying=='tool pickaxe'){
                     $(this).removeClass(selectedDiv);
                     $(this).addClass("divBg");
                     rockCount++;
@@ -267,21 +267,15 @@ $(document).ready(function(){
                     pikaCount++;
                 }
 
-                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool picaxe'){
+                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool pickaxe'){
                     blinkRed();
                 }
 
             }
-            else if(selectedDiv =='professor divBg'){
+            else if(selectedDiv =='crafting-table divBg'){
 
-                if (pokeCount===6){
-                    var message = "Wow! Congratulations on catching all of the wild pokemon!";
-                }
-                else {
-                    var message = "You have captured " +pokeCount + " pokemon so far. Catch all wild pokemon for a surprise";
-                }
-                $('#oakMessage').text(message);
-                $(".professorMessage").modal('show');
+                
+                alert("crafting table");
             }
 
             else if(selectedDiv =='charmander divBg'){
@@ -311,7 +305,7 @@ $(document).ready(function(){
                     }
                     capturedChar=true;
                 }
-                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool picaxe'){
+                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool pickaxe'){
                     blinkRed();
                 }
                 else if (carrying=='tool pokeball' && $(this).data("health")>=20 && capturedChar==false){
@@ -347,7 +341,7 @@ $(document).ready(function(){
                     }
                     capturedSquirt=true;
                 }
-                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool picaxe'){
+                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool pickaxe'){
                     blinkRed();
                 }
                 else if (carrying=='tool pokeball' && $(this).data("health")>=20 && capturedSquirt==false){
@@ -383,7 +377,7 @@ $(document).ready(function(){
                     }
                     capturedBulb=true;
                 }
-                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool picaxe'){
+                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool pickaxe'){
                     blinkRed();
                 }
                 else if (carrying=='tool pokeball' && $(this).data("health")>=20 && capturedBulb==false){
@@ -418,7 +412,7 @@ $(document).ready(function(){
                     }
                     capturedDig=true;
                 }
-                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool picaxe'){
+                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool pickaxe'){
                     blinkRed();
                 }
                 else if (carrying=='tool pokeball' && $(this).data("health")>=20 && capturedDig==false){
@@ -452,7 +446,7 @@ $(document).ready(function(){
                     }
                     capturedPidg=true;
                 }
-                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool picaxe'){
+                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool pickaxe'){
                     blinkRed();
                 }
                 else if (carrying=='tool pokeball' && $(this).data("health")>=20 && capturedPidg==false){
@@ -488,7 +482,7 @@ $(document).ready(function(){
                     capturedMewtwo=true;
                 }
 
-                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool picaxe'){
+                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool pickaxe'){
                     blinkRed();
                 }
                 else if (carrying=='tool pokeball' && $(this).data("health")>=20 && capturedMewtwo==false){
