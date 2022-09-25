@@ -136,7 +136,7 @@ $(document).ready(function(){
     var treeCount=0;
     var rockCount =0;
 
-    var pikaCount =1;
+    var craftingTableCount =1;
     var diglettCount =0;
     var pidgeyCount =0;
     var bulbasaurCount =0;
@@ -246,12 +246,12 @@ $(document).ready(function(){
                 }
             }
 
-            else if(selectedDiv =='pika divBg'){
+            else if(selectedDiv =='crafting-table divBg'){
 
                 if(carrying=='tool pokeball'){
                     $(this).removeClass(selectedDiv);
                     $(this).addClass("divBg");
-                    pikaCount++;
+                    craftingTableCount++;
                 }
 
                 else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool pickaxe'){
@@ -270,7 +270,7 @@ $(document).ready(function(){
                 var currPokeCount = checkPokemon(currentResource);
                 var pokeDamage = reduceHealth(currentResource);
 
-                if ((currentResource=='pika'  || currentResource=='squirtle' || currentResource=="bulbasaur"  ||
+                if ((currentResource=='crafting-table'  || currentResource=='squirtle' || currentResource=="bulbasaur"  ||
                 currentResource=='diglett' || currentResource=='pidgey'  || currentResource=='mewtwo') &&currPokeCount>0){
 
                     charHealth -= pokeDamage;
@@ -304,7 +304,7 @@ $(document).ready(function(){
                 var currPokeCount = checkPokemon(currentResource);
                 var pokeDamage = reduceHealth(currentResource);
 
-                if ((currentResource=='pika'   ||currentResource=='charmander'   ||currentResource=="bulbasaur" ||
+                if ((currentResource=='crafting-table'   ||currentResource=='charmander'   ||currentResource=="bulbasaur" ||
                 currentResource=='diglett' || currentResource=='pidgey'|| currentResource=='mewtwo' )&&currPokeCount>0){
 
                 squirtHealth-= pokeDamage;
@@ -341,7 +341,7 @@ $(document).ready(function(){
                 var currPokeCount = checkPokemon(currentResource);
                 var pokeDamage = reduceHealth(currentResource);
 
-                if ((currentResource=='pika'  ||currentResource=='charmander'  ||currentResource=='squirtle' ||
+                if ((currentResource=='crafting-table'  ||currentResource=='charmander'  ||currentResource=='squirtle' ||
                 currentResource=='diglett' || currentResource=='pidgey' || currentResource=='mewtwo' )&& currPokeCount>0){
 
                     bulbHealth -= pokeDamage;
@@ -377,7 +377,7 @@ $(document).ready(function(){
                 var currPokeCount = checkPokemon(currentResource);
                 var pokeDamage = reduceHealth(currentResource);
 
-                if ((currentResource=='pika'  ||currentResource=='charmander' || currentResource=='squirtle' ||
+                if ((currentResource=='crafting-table'  ||currentResource=='charmander' || currentResource=='squirtle' ||
                 currentResource=='bulbasaur'|| currentResource=='pidgey'  || currentResource=='mewtwo' ) && currPokeCount>0){
 
                     digHealth -= pokeDamage;
@@ -411,7 +411,7 @@ $(document).ready(function(){
                 var currPokeCount = checkPokemon(currentResource);
                 var pokeDamage = reduceHealth(currentResource);
 
-                if ((currentResource=='pika'||currentResource=='charmander'  ||currentResource=='squirtle'
+                if ((currentResource=='crafting-table'||currentResource=='charmander'  ||currentResource=='squirtle'
                 || currentResource=='bulbasaur' ||currentResource=="diglett" || currentResource=='mewtwo') && currPokeCount>0){
 
                     pidgHealth-= pokeDamage;
@@ -446,7 +446,7 @@ $(document).ready(function(){
                 var currPokeCount = checkPokemon(currentResource);
                 var pokeDamage = reduceHealth(currentResource);
 
-                if ((currentResource=='pika' ||currentResource=='charmander' ||currentResource=='squirtle'  ||
+                if ((currentResource=='crafting-table' ||currentResource=='charmander' ||currentResource=='squirtle'  ||
                 currentResource=='bulbasaur'  || currentResource=="diglett"  || currentResource=='pidgey') && currPokeCount>0){
 
                 mewHealth -= pokeDamage;
@@ -509,10 +509,10 @@ $(document).ready(function(){
 
     }
 
-    var resourceArray = ["grass","leaf","dirt","rock","tree","pika","diglett","pidgey","bulbasaur",
+    var resourceArray = ["grass","leaf","dirt","rock","tree","crafting-table","diglett","pidgey","bulbasaur",
     "charmander","mewtwo","squirtle"];
 
-    var countNames= [grassCount,leafCount,dirtCount,rockCount,treeCount,pikaCount,diglettCount,pidgeyCount,
+    var countNames= [grassCount,leafCount,dirtCount,rockCount,treeCount,craftingTableCount,diglettCount,pidgeyCount,
     bulbasaurCount,charmanderCount,mewtwoCount,squirtleCount];
 
     function inventoryMaker(){
@@ -556,7 +556,7 @@ $(document).ready(function(){
                 break;
             case 'rock': hashCount= rockCount;
                 break;
-            case 'pika': hashCount= pikaCount;
+            case 'crafting-table': hashCount= craftingTableCount;
                 break;
             case 'charmander': hashCount= charmanderCount;
                 break;
@@ -589,7 +589,7 @@ $(document).ready(function(){
                 break;
             case 'rock': hashCount= rockCount--;
                 break;
-            case 'pika': hashCount= pikaCount--;
+            case 'crafting-table': hashCount= craftingTableCount--;
                 break;
             case 'charmander': hashCount= charmanderCount--;
                 break;
@@ -612,7 +612,7 @@ $(document).ready(function(){
         var currPoke;
 
         switch(poke){
-        case 'pika': currPoke= pikaCount;
+        case 'crafting-table': currPoke= craftingTableCount;
             break;
         case 'charmander': currPoke= charmanderCount;
             break;
@@ -647,7 +647,7 @@ $(document).ready(function(){
         var currDamage;
 
         switch(poke){
-        case 'pika': currDamage= $(".pika").data("attack");
+        case 'crafting-table': currDamage= $(".crafting-table").data("attack");
         break;
         case 'charmander': currDamage= $(".charmander").data("attack");
             break;
@@ -679,7 +679,7 @@ $(document).ready(function(){
         leafCount =0;
         treeCount=0;
         rockCount =0;
-        pikaCount =1;
+        craftingTableCount =1;
         mewtwoCount =0;
         pidgeyCount =0;
         bulbasaurCount =0;
@@ -716,7 +716,7 @@ $(document).ready(function(){
         $(".squirtle").data("health",squirtHealth);
         $(".squirtle").data("attack",15);
 
-        $(".pika").data("attack",5);
+        $(".crafting-table").data("attack",5);
 
         $(".charmander").data("health",charHealth);
         $(".charmander").data("attack",10);
@@ -768,7 +768,7 @@ $(document).ready(function(){
     $(".squirtle").data("health",squirtHealth);
     $(".squirtle").data("attack",15);
 
-    $(".pika").data("attack",5);
+    $(".crafting-table").data("attack",5);
 
     $(".charmander").data("health",charHealth);
     $(".charmander").data("attack",10);
