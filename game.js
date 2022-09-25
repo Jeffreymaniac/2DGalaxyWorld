@@ -3,19 +3,6 @@ $(document).ready(function(){
     vid.autoplay = true;
     vid.loop = true;
 
-
-    $("#myModal").modal('show');
-    $("#tutorial").click(function() {
-        $("#tutorialModal").modal('show');
-        $("#myModal").modal('hide');
-    });
-    $("#returnToMain").click(function() {
-        $("#tutorialModal").modal('hide');
-        $("#myModal").modal('show');
-    });
-    $("#play").click(function() {
-        $("#myModal").modal('hide');
-    });
     setTimeout(function() {
         $("#layout").css("visibility","visible");
     },1000);
