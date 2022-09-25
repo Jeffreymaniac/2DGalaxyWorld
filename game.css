@@ -56,6 +56,10 @@ body{
     height: 35px;
     display: inline-block;
 }
+.crafting-table{
+    background-image: url("images/crafting-table.png");
+    background-size: contain;
+}
 
 #layout{
     display: flex;
