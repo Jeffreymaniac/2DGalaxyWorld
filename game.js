@@ -7,7 +7,10 @@ $(document).ready(function(){
         $("#layout").css("visibility","visible");
     },1000);
 
-
+function craftingTableFunction() {
+ alert('crafting table');   
+}
+    
     function makeBg(){
 
         for (var i=0; i<18; i++){ // i is row
@@ -92,9 +95,9 @@ $(document).ready(function(){
     }
 
 
-    var toolArray = ["pickaxe","shovel","axe","pokeball"];
+    var toolArray = ["pickaxe","shovel","axe","item giver"];
 
-    var toolImages =["images/pickaxe.png","images/shovel.png","images/axe.png","images/ball.png"];
+    var toolImages =["images/pickaxe.png","images/shovel.png","images/axe.png","item-giver.jpg"];
 
     function toolMaker(){
 
@@ -133,10 +136,10 @@ $(document).ready(function(){
     var dirtCount=0;
     var grassCount =0;
     var leafCount =0;
-    var treeCount=0;
-    var rockCount =0;
+    var treeCount=20;
+    var rockCount =20;
 
-    var pikaCount =1;
+    var craftingTableCount =1;
     var diglettCount =0;
     var pidgeyCount =0;
     var bulbasaurCount =0;
@@ -195,6 +198,8 @@ $(document).ready(function(){
         if(selectedDiv!='divBg'){
 
             if (selectedDiv =='dirt divBg' || selectedDiv =='grass divBg'){
+                
+                //if you break a dirt block, you get a dirt block. same for the grass block
 
                 if(carrying=='tool shovel'){
                     $(this).removeClass(selectedDiv);
@@ -246,12 +251,12 @@ $(document).ready(function(){
                 }
             }
 
-            else if(selectedDiv =='pika divBg'){
+            else if(selectedDiv =='crafting-table divBg'){
 
                 if(carrying=='tool pokeball'){
                     $(this).removeClass(selectedDiv);
                     $(this).addClass("divBg");
-                    pikaCount++;
+                    craftingTableCount++;
                 }
 
                 else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool pickaxe'){
@@ -262,7 +267,7 @@ $(document).ready(function(){
             else if(selectedDiv =='crafting-table divBg'){
 
                 
-                alert("crafting table");
+                craftingTableFunction();
             }
 
             else if(selectedDiv =='charmander divBg'){
