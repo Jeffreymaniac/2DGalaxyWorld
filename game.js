@@ -92,9 +92,9 @@ $(document).ready(function(){
     }
 
 
-    var toolArray = ["pickaxe","shovel","axe","item giver"];
+    var toolArray = ["pickaxe","shovel","axe"];
 
-    var toolImages =["images/pickaxe.png","images/shovel.png","images/axe.png","item-giver.jpg"];
+    var toolImages =["images/pickaxe.png","images/shovel.png","images/axe.png"];
 
     function toolMaker(){
 
@@ -136,7 +136,7 @@ $(document).ready(function(){
     var treeCount=20;
     var rockCount =20;
 
-    var craftingTableCount =1;
+    var craftingTableCount =0;
     var diglettCount =0;
     var pidgeyCount =0;
     var bulbasaurCount =0;
