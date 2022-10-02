@@ -479,15 +479,7 @@ $(document).ready(function(){
             }
 
 
-            if(pokeCount === 6 && displayed===false) {
-
-                setTimeout(function() {
-                    $("#winningModal").modal('show');
-                    $(".captureMessage").modal('hide');
-                    displayed=true;
-                },1500);
-
-            }
+       
 
             var strNameUpdate = selectedDiv.replace(" divBg","");
             updateInventory(strNameUpdate);
