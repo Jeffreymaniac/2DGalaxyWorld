@@ -7,9 +7,6 @@ $(document).ready(function(){
         $("#layout").css("visibility","visible");
     },1000);
 
-function craftingTableFunction() {
- alert('crafting table');   
-}
     
     function makeBg(){
 
@@ -253,7 +250,7 @@ function craftingTableFunction() {
 
             else if(selectedDiv =='crafting-table divBg'){
 
-                if(carrying=='tool pokeball'){
+                if(carrying=='tool axe'){
                     $(this).removeClass(selectedDiv);
                     $(this).addClass("divBg");
                     craftingTableCount++;
@@ -265,9 +262,8 @@ function craftingTableFunction() {
 
             }
             else if(selectedDiv =='crafting-table divBg'){
-
                 
-                craftingTableFunction();
+                alert('crafting table');
             }
 
             else if(selectedDiv =='charmander divBg'){
@@ -514,10 +510,10 @@ function craftingTableFunction() {
 
     }
 
-    var resourceArray = ["grass","leaf","dirt","rock","tree","pika","diglett","pidgey","bulbasaur",
+    var resourceArray = ["grass","leaf","dirt","rock","tree","crafting-table","diglett","pidgey","bulbasaur",
     "charmander","mewtwo","squirtle"];
 
-    var countNames= [grassCount,leafCount,dirtCount,rockCount,treeCount,pikaCount,diglettCount,pidgeyCount,
+    var countNames= [grassCount,leafCount,dirtCount,rockCount,treeCount,craftingTableCount,diglettCount,pidgeyCount,
     bulbasaurCount,charmanderCount,mewtwoCount,squirtleCount];
 
     function inventoryMaker(){
@@ -561,7 +557,7 @@ function craftingTableFunction() {
                 break;
             case 'rock': hashCount= rockCount;
                 break;
-            case 'pika': hashCount= pikaCount;
+            case 'pika': hashCount= craftingTableCount;
                 break;
             case 'charmander': hashCount= charmanderCount;
                 break;
@@ -594,7 +590,7 @@ function craftingTableFunction() {
                 break;
             case 'rock': hashCount= rockCount--;
                 break;
-            case 'pika': hashCount= pikaCount--;
+            case 'pika': hashCount= craftingTableCount--;
                 break;
             case 'charmander': hashCount= charmanderCount--;
                 break;
@@ -617,7 +613,7 @@ function craftingTableFunction() {
         var currPoke;
 
         switch(poke){
-        case 'pika': currPoke= pikaCount;
+        case 'pika': currPoke= craftingTableCount;
             break;
         case 'charmander': currPoke= charmanderCount;
             break;
