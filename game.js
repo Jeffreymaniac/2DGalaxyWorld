@@ -136,7 +136,7 @@ $(document).ready(function(){
     var treeCount=0;
     var rockCount =0;
 
-    var craftingTableCount =0;
+    var pikaCount =1;
     var diglettCount =0;
     var pidgeyCount =0;
     var bulbasaurCount =0;
@@ -196,7 +196,7 @@ $(document).ready(function(){
 
             if (selectedDiv =='dirt divBg' || selectedDiv =='grass divBg'){
 
-      
+                if(carrying=='tool shovel'){
                     $(this).removeClass(selectedDiv);
                     $(this).addClass("divBg");
 
@@ -205,12 +205,19 @@ $(document).ready(function(){
                     }
                     else if(selectedDiv =='grass divBg'){
                         grassCount++;
-                   
+                    }
                 }
+
+                else if(carrying=='tool axe' || carrying=='tool pickaxe' || carrying=='tool pokeball'){
+                    blinkRed();
+
+                }
+
             }
 
             else if(selectedDiv =='leaf divBg' ||selectedDiv =='tree divBg'){
 
+                if(carrying=='tool axe'){
                     $(this).removeClass(selectedDiv);
                     $(this).addClass("divBg");
 
@@ -222,28 +229,263 @@ $(document).ready(function(){
                         treeCount++;
                     }
                 }
-               
+                else if(carrying=='tool shovel' || carrying=='tool pickaxe' || carrying=='tool pokeball'){
+                    blinkRed();
+                }
             }
             else if(selectedDiv =='rock divBg'){
 
+                if(carrying=='tool pickaxe'){
                     $(this).removeClass(selectedDiv);
                     $(this).addClass("divBg");
                     rockCount++;
-                
+                }
 
-  
+                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool pokeball'){
+                    blinkRed();
+                }
             }
 
-            else if(selectedDiv =='crafting-table divBg'){
+            else if(selectedDiv =='pika divBg'){
 
+                if(carrying=='tool pokeball'){
                     $(this).removeClass(selectedDiv);
                     $(this).addClass("divBg");
-                    craftingTableCount++;           
+                    pikaCount++;
+                }
+
+                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool pickaxe'){
+                    blinkRed();
+                }
 
             }
             else if(selectedDiv =='crafting-table divBg'){
 
                 
+                alert("crafting table");
+            }
+
+            else if(selectedDiv =='charmander divBg'){
+
+                var currPokeCount = checkPokemon(currentResource);
+                var pokeDamage = reduceHealth(currentResource);
+
+                if ((currentResource=='pika'  || currentResource=='squirtle' || currentResource=="bulbasaur"  ||
+                currentResource=='diglett' || currentResource=='pidgey'  || currentResource=='mewtwo') &&currPokeCount>0){
+
+                    charHealth -= pokeDamage;
+
+                    $(this).data("health",charHealth);
+                    $('#healthbar').css("width",charHealth);
+                    blinkRedPokemon();
+                }
+
+                if(carrying=='tool pokeball' && ($(this).data("health")<40 || capturedChar==true)){
+                    $(this).removeClass(selectedDiv);
+                    $(this).addClass("divBg");
+                    charmanderCount++;
+
+                    if (capturedChar==false){
+                        $('#capturedCaption').text("Charmander has been added to your Pokedex");
+                        $(".captureMessage").modal('show');
+                        pokeCount++;
+                    }
+                    capturedChar=true;
+                }
+                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool pickaxe'){
+                    blinkRed();
+                }
+                else if (carrying=='tool pokeball' && $(this).data("health")>=20 && capturedChar==false){
+                    $(".failcaptureMessage").modal('show');
+                }
+            }
+            else if(selectedDiv =='squirtle divBg'){
+
+                var currPokeCount = checkPokemon(currentResource);
+                var pokeDamage = reduceHealth(currentResource);
+
+                if ((currentResource=='pika'   ||currentResource=='charmander'   ||currentResource=="bulbasaur" ||
+                currentResource=='diglett' || currentResource=='pidgey'|| currentResource=='mewtwo' )&&currPokeCount>0){
+
+                squirtHealth-= pokeDamage;
+
+                    $(this).data("health",squirtHealth);
+                    $('#healthbar').css("width",squirtHealth);
+                    blinkRedPokemon();
+
+
+                }
+
+                if(carrying=='tool pokeball' && ( $(this).data("health")<40 || capturedSquirt==true)){
+                    $(this).removeClass(selectedDiv);
+                    $(this).addClass("divBg");
+                    squirtleCount++;
+
+                    if (capturedSquirt==false){
+                        $('#capturedCaption').text("Squirtle has been added to your Pokedex");
+                        $(".captureMessage").modal('show');
+                        pokeCount++;
+                    }
+                    capturedSquirt=true;
+                }
+                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool pickaxe'){
+                    blinkRed();
+                }
+                else if (carrying=='tool pokeball' && $(this).data("health")>=20 && capturedSquirt==false){
+                    $(".failcaptureMessage").modal('show');
+                }
+            }
+
+            else if(selectedDiv =='bulbasaur divBg'){
+
+                var currPokeCount = checkPokemon(currentResource);
+                var pokeDamage = reduceHealth(currentResource);
+
+                if ((currentResource=='pika'  ||currentResource=='charmander'  ||currentResource=='squirtle' ||
+                currentResource=='diglett' || currentResource=='pidgey' || currentResource=='mewtwo' )&& currPokeCount>0){
+
+                    bulbHealth -= pokeDamage;
+
+                    $(this).data("health",bulbHealth);
+
+                    $('#healthbar').css("width",bulbHealth);
+                    blinkRedPokemon();
+                }
+
+                if(carrying=='tool pokeball' && ( $(this).data("health")<20 || capturedBulb==true)){
+                    $(this).removeClass(selectedDiv);
+                    $(this).addClass("divBg");
+                    bulbasaurCount++;
+
+                    if (capturedBulb==false){
+                        $('#capturedCaption').text("Bulbasaur has been added to your Pokedex");
+                        $(".captureMessage").modal('show');
+                        pokeCount++;
+                    }
+                    capturedBulb=true;
+                }
+                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool pickaxe'){
+                    blinkRed();
+                }
+                else if (carrying=='tool pokeball' && $(this).data("health")>=20 && capturedBulb==false){
+                    $(".failcaptureMessage").modal('show');
+                }
+            }
+
+            else if(selectedDiv =='diglett divBg'){
+
+                var currPokeCount = checkPokemon(currentResource);
+                var pokeDamage = reduceHealth(currentResource);
+
+                if ((currentResource=='pika'  ||currentResource=='charmander' || currentResource=='squirtle' ||
+                currentResource=='bulbasaur'|| currentResource=='pidgey'  || currentResource=='mewtwo' ) && currPokeCount>0){
+
+                    digHealth -= pokeDamage;
+
+                    $(this).data("health",digHealth);
+                    $('#healthbar').css("width",digHealth);
+                    blinkRedPokemon();
+                }
+
+                if(carrying=='tool pokeball' && ( $(this).data("health")<20 || capturedDig==true)){
+                    $(this).removeClass(selectedDiv);
+                    $(this).addClass("divBg");
+                    diglettCount++;
+
+                    if (capturedDig==false){
+                        $('#capturedCaption').text("Diglett has been added to your Pokedex");
+                        $(".captureMessage").modal('show');
+                        pokeCount++;
+                    }
+                    capturedDig=true;
+                }
+                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool pickaxe'){
+                    blinkRed();
+                }
+                else if (carrying=='tool pokeball' && $(this).data("health")>=20 && capturedDig==false){
+                    $(".failcaptureMessage").modal('show');
+                }
+            }
+            else if(selectedDiv =='pidgey divBg'){
+
+                var currPokeCount = checkPokemon(currentResource);
+                var pokeDamage = reduceHealth(currentResource);
+
+                if ((currentResource=='pika'||currentResource=='charmander'  ||currentResource=='squirtle'
+                || currentResource=='bulbasaur' ||currentResource=="diglett" || currentResource=='mewtwo') && currPokeCount>0){
+
+                    pidgHealth-= pokeDamage;
+
+                    $(this).data("health",pidgHealth);
+                    $('#healthbar').css("width",pidgHealth);
+                    blinkRedPokemon();
+                }
+
+                if(carrying=='tool pokeball' && ( $(this).data("health")<20 || capturedPidg==true)){
+                    $(this).removeClass(selectedDiv);
+                    $(this).addClass("divBg");
+                    pidgeyCount++;
+
+                    if (capturedPidg==false){
+                        $('#capturedCaption').text("Pidgey has been added to your Pokedex");
+                        $(".captureMessage").modal('show');
+                        pokeCount++;
+                    }
+                    capturedPidg=true;
+                }
+                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool pickaxe'){
+                    blinkRed();
+                }
+                else if (carrying=='tool pokeball' && $(this).data("health")>=20 && capturedPidg==false){
+                    $(".failcaptureMessage").modal('show');
+                }
+            }
+
+            else if(selectedDiv =='mewtwo divBg'){
+
+                var currPokeCount = checkPokemon(currentResource);
+                var pokeDamage = reduceHealth(currentResource);
+
+                if ((currentResource=='pika' ||currentResource=='charmander' ||currentResource=='squirtle'  ||
+                currentResource=='bulbasaur'  || currentResource=="diglett"  || currentResource=='pidgey') && currPokeCount>0){
+
+                mewHealth -= pokeDamage;
+
+                    $(this).data("health",mewHealth);
+                    $('#healthbar').css("width",mewHealth);
+                    blinkRedPokemon();
+                }
+
+                if(carrying=='tool pokeball' && ( $(this).data("health")<20 || capturedMewtwo==true)){
+                    $(this).removeClass(selectedDiv);
+                    $(this).addClass("divBg");
+                    mewtwoCount++;
+
+                    if (capturedMewtwo==false){
+                        $('#capturedCaption').text("Mewtwo has been added to your Pokedex");
+                        $(".captureMessage").modal('show');
+                        pokeCount++;
+                    }
+                    capturedMewtwo=true;
+                }
+
+                else if(carrying=='tool axe' || carrying=='tool shovel' || carrying=='tool pickaxe'){
+                    blinkRed();
+                }
+                else if (carrying=='tool pokeball' && $(this).data("health")>=20 && capturedMewtwo==false){
+                    $(".failcaptureMessage").modal('show');
+                }
+            }
+
+
+            if(pokeCount === 6 && displayed===false) {
+
+                setTimeout(function() {
+                    $("#winningModal").modal('show');
+                    $(".captureMessage").modal('hide');
+                    displayed=true;
+                },1500);
+
             }
 
             var strNameUpdate = selectedDiv.replace(" divBg","");
@@ -267,9 +509,11 @@ $(document).ready(function(){
 
     }
 
-    var resourceArray = ["grass","leaf","dirt","rock","tree","crafting-table"];
+    var resourceArray = ["grass","leaf","dirt","rock","tree","pika","diglett","pidgey","bulbasaur",
+    "charmander","mewtwo","squirtle"];
 
-    var countNames= [grassCount,leafCount,dirtCount,rockCount,treeCount,craftingTableCount];
+    var countNames= [grassCount,leafCount,dirtCount,rockCount,treeCount,pikaCount,diglettCount,pidgeyCount,
+    bulbasaurCount,charmanderCount,mewtwoCount,squirtleCount];
 
     function inventoryMaker(){
         for (var y=0; y<resourceArray.length;y++){
@@ -312,7 +556,7 @@ $(document).ready(function(){
                 break;
             case 'rock': hashCount= rockCount;
                 break;
-            case 'crafting-table': hashCount= craftingTableCount;
+            case 'pika': hashCount= pikaCount;
                 break;
             case 'charmander': hashCount= charmanderCount;
                 break;
@@ -345,7 +589,7 @@ $(document).ready(function(){
                 break;
             case 'rock': hashCount= rockCount--;
                 break;
-            case 'crafting-table': hashCount= craftingTableCount--;
+            case 'pika': hashCount= pikaCount--;
                 break;
             case 'charmander': hashCount= charmanderCount--;
                 break;
@@ -368,7 +612,7 @@ $(document).ready(function(){
         var currPoke;
 
         switch(poke){
-        case 'crafting-table': currPoke= craftingTableCount;
+        case 'pika': currPoke= pikaCount;
             break;
         case 'charmander': currPoke= charmanderCount;
             break;
@@ -403,7 +647,7 @@ $(document).ready(function(){
         var currDamage;
 
         switch(poke){
-        case 'crafting-table': currDamage= $(".crafting-table").data("attack");
+        case 'pika': currDamage= $(".pika").data("attack");
         break;
         case 'charmander': currDamage= $(".charmander").data("attack");
             break;
@@ -435,7 +679,7 @@ $(document).ready(function(){
         leafCount =0;
         treeCount=0;
         rockCount =0;
-        craftingTableCount =1;
+        pikaCount =1;
         mewtwoCount =0;
         pidgeyCount =0;
         bulbasaurCount =0;
@@ -472,7 +716,7 @@ $(document).ready(function(){
         $(".squirtle").data("health",squirtHealth);
         $(".squirtle").data("attack",15);
 
-        $(".crafting-table").data("attack",5);
+        $(".pika").data("attack",5);
 
         $(".charmander").data("health",charHealth);
         $(".charmander").data("attack",10);
@@ -524,7 +768,7 @@ $(document).ready(function(){
     $(".squirtle").data("health",squirtHealth);
     $(".squirtle").data("attack",15);
 
-    $(".crafting-table").data("attack",5);
+    $(".pika").data("attack",5);
 
     $(".charmander").data("health",charHealth);
     $(".charmander").data("attack",10);
