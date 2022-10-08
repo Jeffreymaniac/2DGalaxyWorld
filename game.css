@@ -1,9 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
 
-body{
+body {
+    margin:0px;    
     line-height: 0 !important;
     font-family:Verdana;
 }
+#maincontent {
+    margin:12px;
+}
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+button, input[type=button], input[type=submit], input[type=checkbox], input[type="radio"], input[type=reset] {cursor:pointer;}
 
 .button-container{
     margin-top:40px;
@@ -14,9 +39,8 @@ body{
     margin-left:20px;
     width:150px;
 }
-.green{
-    background-color: green;
-}
+
+.green{background-color: green;}
 
 .divBg:hover{
     /*to make an inner shadow on the divs*/
@@ -85,7 +109,6 @@ body{
     color:white;
 }
 .tool img{
-
     width: 55px;
     height: 55px;
 }
@@ -126,10 +149,7 @@ body{
     margin:5px 0px;
     height:30px;
 }
-.backgroundRed{
-    background: red !important;
-}
-
+.backgroundRed{background: red !important;}
 
 @media only screen and (min-width: 1001px) {
     .divBg{
@@ -154,7 +174,7 @@ body{
         display: inline-block;
     }
     .clouds{
-        background-color: #FFF;
+        background-color: white;
         width:20px;
         height: 20px;
         display: inline-block;
