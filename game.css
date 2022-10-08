@@ -2,7 +2,7 @@
 
 body {
     margin:0px;    
-    line-height: 0 !important;
+    /* line-height: 0 !important; */
     font-family:Verdana;
 }
 #maincontent {
@@ -100,9 +100,6 @@ button, input[type=button], input[type=submit], input[type=checkbox], input[type
     /*align-items:center;*/
     flex-direction: column;
 }
-body{
-    margin: 0;
-}
 
 .tool{
     border: 1px white solid;
@@ -128,7 +125,7 @@ body{
     color:white;
     text-align: center;
     text-transform: uppercase;
-    font-family: 'Bungee', cursive;
+    font-family: 'Silkscreen', cursive;
 }
 
 #inventory button{
