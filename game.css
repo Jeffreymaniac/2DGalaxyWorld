@@ -2,7 +2,6 @@
 
 body {
     margin:0px;    
-    line-height: 0 !important;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 #maincontent {
@@ -34,12 +33,14 @@ button, input[type=button], input[type=submit], input[type=checkbox], input[type
 
 .button-container{
     margin-top:40px;
+    line-height: 0 !important;
 }
 
 .button-container  button{
     font-family: 'Silkscreen', cursive;
     margin-left:20px;
     width:150px;
+    line-height: 0 !important;
 }
 
 .green{background-color: green;}
@@ -47,6 +48,7 @@ button, input[type=button], input[type=submit], input[type=checkbox], input[type
 .divBg:hover{
     /*to make an inner shadow on the divs*/
     box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 1) inset;
+    line-height: 0 !important;
 }
 
 #healthbar{
@@ -55,41 +57,50 @@ button, input[type=button], input[type=submit], input[type=checkbox], input[type
     background-color: green;
     margin:5px;
     text-align: left;
+    line-height: 0 !important;
 }
 .dirt{
     background-image: url("images/dirt.png");
     background-size: contain;
+    line-height: 0 !important;
 }
 .grass{
     background-image: url("images/grass.png");
     background-size: contain;
+    line-height: 0 !important;
 }
 .tree{
     background-image: url("images/tree.png");
     background-size: contain;
+    line-height: 0 !important;
 }
 .leaf{
     background-image: url("images/leaf.jpg");
     background-size: contain;
+    line-height: 0 !important;
 }
 .rock{
     background-image: url("images/rock.png");
     background-size: contain;
+    line-height: 0 !important;
 }
 .clouds{
     background-color: #FFF;
     width:35px;
     height: 35px;
     display: inline-block;
+    line-height: 0 !important;
 }
 .crafting-table{
     background-image: url("images/crafting-table.png");
     background-size: contain;
+    line-height: 0 !important;
 }
 
 #layout{
     display: flex;
     visibility: hidden;
+    line-height: 0 !important;
 }
 .wrapper{
     background-color: black;
@@ -99,6 +110,7 @@ button, input[type=button], input[type=submit], input[type=checkbox], input[type
     justify-content:center;
     /*align-items:center;*/
     flex-direction: column;
+    line-height: 0 !important;
 }
 
 .tool{
@@ -106,15 +118,18 @@ button, input[type=button], input[type=submit], input[type=checkbox], input[type
     width: 90px;
     height: 90px;
     color:white;
+    line-height: 0 !important;
 }
 .tool img{
     width: 55px;
     height: 55px;
+    line-height: 0 !important;
 }
 
 
 .tool:hover{
     background-color: blue !important;
+    line-height: 0 !important;
 }
 
 #tools{
@@ -126,6 +141,7 @@ button, input[type=button], input[type=submit], input[type=checkbox], input[type
     text-align: center;
     text-transform: uppercase;
     font-family: 'Silkscreen', cursive;
+    line-height: 0 !important;
 }
 
 #inventory button{
@@ -138,24 +154,29 @@ button, input[type=button], input[type=submit], input[type=checkbox], input[type
 .inventory{
     font-size: 20px;
     text-align: center;
+    line-height: 0 !important;
 }
 #inventory{
    padding-left:10px;
+   line-height: 0 !important;
 }
 #restore{
     font-size: 20px;
     font-family: 'Silkscreen', cursive;
     margin:5px 0px;
     height:30px;
+    line-height: 0 !important;
 }
 .backgroundRed{background: red !important;}
 
-@media only screen and (min-width: 1001px) {
+
+/* maybe put this back @media only screen and (min-width: 1001px) {
     .divBg{
         width:35px;
         height:35px;
         background-color: #91C1FC;
         display: inline-block;
+        /* line-height: 0 !important; */
     }
     .clouds{
         background-color: #FFF;
@@ -199,4 +220,4 @@ button, input[type=button], input[type=submit], input[type=checkbox], input[type
         text-align: center;
     }
 
-}
+} */
