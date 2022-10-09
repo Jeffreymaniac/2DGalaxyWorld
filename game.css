@@ -170,13 +170,14 @@ button, input[type=button], input[type=submit], input[type=checkbox], input[type
 .backgroundRed{background: red !important;}
 
 
-/* maybe put this back @media only screen and (min-width: 1001px) {
+/* maybe put this back 
+
+@media only screen and (min-width: 1001px) {
     .divBg{
         width:35px;
         height:35px;
         background-color: #91C1FC;
         display: inline-block;
-        /* line-height: 0 !important; */
     }
     .clouds{
         background-color: #FFF;
@@ -220,4 +221,5 @@ button, input[type=button], input[type=submit], input[type=checkbox], input[type
         text-align: center;
     }
 
-} */
+} 
+*/
